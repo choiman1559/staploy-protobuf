@@ -1,5 +1,6 @@
 syntax = "proto3";
 package com.staploy;
+import "protocol.proto";
 
 message BinaryInfo {
   string name = 1;
@@ -26,4 +27,5 @@ message InstalledAppInfo {
   AppInfo app = 1;
   optional Version currentVersion = 2;
   repeated Version availableVersion = 3;
+  repeated CpuArch supportedArch = 4;
 }
