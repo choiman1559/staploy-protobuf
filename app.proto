@@ -1,6 +1,6 @@
 syntax = "proto3";
 package com.staploy;
-import "protocol.proto";
+import "cpus.proto";
 
 message BinaryInfo {
   string name = 1;

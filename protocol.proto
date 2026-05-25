@@ -1,6 +1,8 @@
 syntax = "proto3";
 package com.staploy;
+
 import "app.proto";
+import "cpus.proto";
 
 enum ProtocolProcedure {
   PROCEDURE_SERVER_HELLO = 0;
@@ -20,18 +22,6 @@ enum ActionProcedure {
   PROCEDURE_SET_APP_VERSION = 12;
   PROCEDURE_DELETE_APP_VERSION = 13;
   PROCEDURE_EXECUTE_SHELL = 14;
-}
-
-enum CpuArch {
-  UNKNOWN = 0;
-  i386 = 1;
-  x86_64 = 2;
-  arm = 3;
-  aarch64 = 4;
-  riscv32 = 5;
-  riscv64 = 6;
-  mipsel = 7;
-  mips64el = 8;
 }
 
 message Packet {
