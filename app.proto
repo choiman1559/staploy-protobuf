@@ -11,6 +11,7 @@ message Version {
   string versionName = 1;
   repeated BinaryInfo entryBinaries = 2;
   optional string libVersion = 3;
+  repeated CpuArch supportedArch = 4;
 }
 
 message AppInfo {
@@ -27,5 +28,4 @@ message InstalledAppInfo {
   AppInfo app = 1;
   optional Version currentVersion = 2;
   repeated Version availableVersion = 3;
-  repeated CpuArch supportedArch = 4;
 }
