@@ -9,6 +9,7 @@ enum TaskGroup {
   TASK_MANAGE_APPS = 1;
   TASK_MANAGE_NODE = 2;
   TASK_DEPLOY = 3;
+  TASK_GROUP = 4;
 }
 
 enum TaskAppsTypes {
@@ -36,12 +37,36 @@ enum TaskDeployTypes {
   TYPE_DEPLOY_DEL_VERSION = 3;
 }
 
+enum TaskGroupTypes {
+  TYPE_GROUP_NONE = 0;
+  TYPE_GROUP_CREATE = 1;
+  TYPE_GROUP_DELETE = 2;
+  TYPE_GROUP_ADD_WORKER = 3;
+  TYPE_GROUP_REMOVE_WORKER = 4;
+
+  TYPE_QUERY_GROUP_LIST = 5;
+  TYPE_QUERY_WORKER_IDS = 6;
+}
+
+message GroupRequestPacket {
+  TaskGroupTypes groupTaskTypes = 1;
+  optional string group_name = 2;
+  repeated string names = 3;
+}
+
+message GroupResponsePacket {
+  string requested_name = 1;
+  optional string group_name = 2;
+  optional WorkerInfo worker_info = 3;
+}
+
 message ResponsePacket {
   string status = 1;
   string error_cause = 2;
 
   optional string extra_data = 3;
   repeated WorkerPacket workerResponse = 4;
+  repeated GroupResponsePacket groupResponse = 5;
 }
 
 message RequestPacket {
@@ -54,6 +79,7 @@ message RequestPacket {
     TaskAppsTypes appsTaskType = 10;
     TaskNodeTypes nodeTaskType = 11;
     TaskDeployTypes deployTaskType = 12;
+    GroupRequestPacket groupTaskType = 13;
   }
 }
 
