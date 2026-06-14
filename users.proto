@@ -1,0 +1,65 @@
+syntax = "proto3";
+package com.staploy;
+
+import "protocol.proto";
+import "app.proto";
+
+enum TaskUserTypes {
+  TYPE_USER_NONE = 0;
+  TYPE_USER_CREATE = 1;
+  TYPE_USER_REMOVE = 2;
+  TYPE_USER_LOGIN = 3;
+  TYPE_USER_RBAC = 4;
+  TYPE_USER_AUDIT = 5;
+}
+
+enum PermissionFlag {
+  NONE = 0;
+
+  APP_CREATE = 1;      // 1u << 0
+  APP_UPLOAD = 2;      // 1u << 1
+  APP_DELETE = 4;      // 1u << 2
+
+  NODE_BASH = 8;      // 1u << 3
+  NODE_PUSH = 16;     // 1u << 4
+  NODE_SET = 32;      // 1u << 5
+  NODE_REMOVE = 64;   // 1u << 6
+  NODE_DISCONN = 128; // 1u << 7
+
+  GROUP_MANAGE = 8192;   // 1u << 13
+  USER_MANAGE = 16384;   // 1u << 14
+  SYSTEM_ADMIN = 32768;  // 1u << 15
+}
+
+message UserMetadata {
+  string userName = 1;
+  uint64 version = 2;
+  uint32 permissions = 3;
+  optional string roleName = 4;
+}
+
+message UserLoginInfo {
+  string userName = 1;
+  optional bytes userPassword = 2;
+  optional bytes userToken = 3;
+}
+
+message AuditLogData {
+  uint64 timestamp = 1;
+  string operator = 2;
+
+  optional WorkerInfo target = 3;
+  optional AppInfo app = 4;
+  optional Version version = 5;
+
+  PermissionFlag action = 6;
+  string status = 7;
+}
+
+message UserRequestPacket {
+  TaskUserTypes userTaskTypes = 1;
+  optional UserLoginInfo userLoginInfo = 2;
+
+  optional uint32 permissions = 10;
+  repeated AuditLogData auditData = 11;
+}
