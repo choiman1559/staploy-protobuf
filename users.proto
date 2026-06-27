@@ -43,7 +43,7 @@ message UserMetadata {
 message UserLoginInfo {
   string userName = 1;
   optional bytes userPassword = 2;
-  optional bytes userToken = 3;
+  optional string userToken = 3;
 }
 
 message AuditLogData {
