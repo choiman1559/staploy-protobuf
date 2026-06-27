@@ -11,6 +11,7 @@ enum TaskUserTypes {
   TYPE_USER_LOGIN = 3;
   TYPE_USER_RBAC = 4;
   TYPE_USER_AUDIT = 5;
+  TYPE_USER_LISTS = 6;
 }
 
 enum PermissionFlag {
@@ -60,7 +61,11 @@ message AuditLogData {
 message UserRequestPacket {
   TaskUserTypes userTaskTypes = 1;
   optional UserLoginInfo userLoginInfo = 2;
+  optional uint32 permissions = 3;
+}
 
-  optional uint32 permissions = 10;
-  repeated AuditLogData auditData = 11;
+message UserResponsePacket {
+  optional UserLoginInfo userLoginInfo = 1;
+  repeated AuditLogData auditData = 2;
+  repeated UserMetadata userMetaDatas = 3;
 }
