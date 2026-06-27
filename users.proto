@@ -32,10 +32,11 @@ enum PermissionFlag {
 }
 
 message UserMetadata {
-  string userName = 1;
-  uint64 version = 2;
-  uint32 permissions = 3;
-  optional string roleName = 4;
+  string uuid = 1;
+  string userName = 2;
+  uint64 version = 3;
+  uint32 permissions = 4;
+  optional string roleName = 5;
 }
 
 message UserLoginInfo {
