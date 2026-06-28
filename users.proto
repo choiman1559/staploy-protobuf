@@ -12,6 +12,7 @@ enum TaskUserTypes {
   TYPE_USER_RBAC = 4;
   TYPE_USER_AUDIT = 5;
   TYPE_USER_LISTS = 6;
+  TYPE_TOKEN_REFRESH = 7;
 }
 
 enum PermissionFlag {
