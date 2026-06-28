@@ -27,6 +27,7 @@ enum PermissionFlag {
   NODE_REMOVE = 64;   // 1u << 6
   NODE_DISCONN = 128; // 1u << 7
 
+  QUERY_ENDPOINT = 4096; // 1u << 12
   GROUP_MANAGE = 8192;   // 1u << 13
   USER_MANAGE = 16384;   // 1u << 14
   SYSTEM_ADMIN = 32768;  // 1u << 15
