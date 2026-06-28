@@ -52,12 +52,9 @@ message AuditLogData {
   uint64 timestamp = 1;
   string operator = 2;
 
-  optional WorkerInfo target = 3;
-  optional AppInfo app = 4;
-  optional Version version = 5;
-
-  PermissionFlag action = 6;
-  google.protobuf.Any status = 7;
+  PermissionFlag action = 3;
+  google.protobuf.Any request = 4;
+  google.protobuf.Any response = 5;
 }
 
 message UserRequestPacket {
