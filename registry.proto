@@ -24,12 +24,6 @@ message RegistryRequestPacket {
   optional string repositoryUrl = 4;
 }
 
-message RegistryServerResponse {
-  bool resultSuccessful = 1;
-  optional string errorMessage = 2;
-  repeated InstalledAppInfo appInfo = 3;
-}
-
 message RegistryResponsePacket {
   repeated InstalledAppInfo appInfo = 1;
 }
