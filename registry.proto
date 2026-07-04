@@ -26,4 +26,6 @@ message RegistryRequestPacket {
 
 message RegistryResponsePacket {
   repeated InstalledAppInfo appInfo = 1;
+  optional string blobId = 2;
+  repeated string repositoryUrl = 3;
 }
