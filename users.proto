@@ -15,7 +15,7 @@ enum TaskUserTypes {
 }
 
 enum PermissionFlag {
-  NONE = 0;
+  USERS_NONE = 0;
 
   APP_CREATE = 1;      // 1u << 0
   APP_UPLOAD = 2;      // 1u << 1

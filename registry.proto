@@ -3,7 +3,7 @@ package com.staploy;
 import "app.proto";
 
 enum TaskRegistryTypes {
-  NONE = 0;
+  REGISTRY_NONE = 0;
 
   TASK_PUSH = 1;
   TASK_PULL = 2;
