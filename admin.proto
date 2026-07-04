@@ -4,6 +4,7 @@ package com.staploy;
 import "protocol.proto";
 import "app.proto";
 import "users.proto";
+import "registry.proto";
 
 enum TaskGroup {
   TASK_NONE = 0;
@@ -12,6 +13,7 @@ enum TaskGroup {
   TASK_DEPLOY = 3;
   TASK_GROUP = 4;
   TASK_USER = 5;
+  TASK_REGISTRY = 6;
 }
 
 enum TaskAppsTypes {
@@ -69,8 +71,10 @@ message ResponsePacket {
 
   optional string extra_data = 3;
   repeated WorkerPacket workerResponse = 4;
+
   repeated GroupResponsePacket groupResponse = 5;
   optional UserResponsePacket userResponse = 6;
+  optional RegistryResponsePacket registryResponse = 7;
 }
 
 message RequestPacket {
@@ -86,6 +90,7 @@ message RequestPacket {
 
     GroupRequestPacket groupTaskType = 13;
     UserRequestPacket userTaskType = 14;
+    RegistryRequestPacket registryTaskType = 15;
   }
 }
 

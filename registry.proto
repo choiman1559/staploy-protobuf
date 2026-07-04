@@ -1,0 +1,35 @@
+syntax = "proto3";
+package com.staploy;
+import "app.proto";
+
+enum TaskRegistryTypes {
+  NONE = 0;
+
+  TASK_PUSH = 1;
+  TASK_PULL = 2;
+  TASK_REMOVE = 3;
+  TASK_LIST = 4;
+
+  LOCAL_PULL_PACKAGE = 5;
+  LOCAL_LIST_REPOSITORY = 6;
+  LOCAL_ADD_REPOSITORY = 7;
+  LOCAL_REMOVE_REPOSITORY = 8;
+  LOCAL_MANAGE_TOKEN_REPOSITORY = 9;
+}
+
+message RegistryRequestPacket {
+  TaskRegistryTypes taskType = 1;
+  optional AppInfoFetch appInfo = 2;
+  optional string blobId = 3;
+  optional string repositoryUrl = 4;
+}
+
+message RegistryServerResponse {
+  bool resultSuccessful = 1;
+  optional string errorMessage = 2;
+  repeated InstalledAppInfo appInfo = 3;
+}
+
+message RegistryResponsePacket {
+  repeated InstalledAppInfo appInfo = 1;
+}
