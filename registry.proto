@@ -23,7 +23,7 @@ message RegistryRequestPacket {
   TaskRegistryTypes taskType = 1;
   optional AppInfoFetch appInfo = 2;
   optional string blobId = 3;
-  optional string repositoryUrl = 4;
+  repeated string repositoryUrl = 4;
 }
 
 message RegistryResponsePacket {
