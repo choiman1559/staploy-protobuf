@@ -11,4 +11,10 @@ enum CpuArch {
   riscv64 = 6;
   mipsel = 7;
   mips64el = 8;
+  mips = 9;
+  mips64 = 10;
+  ppc64 = 11;
+  ppc64le = 12;
+  s390x = 13;
+  loong64 = 14;
 }
