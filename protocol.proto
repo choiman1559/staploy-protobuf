@@ -61,6 +61,10 @@ message WorkerFlags {
   bool USE_REMOTE_SHELL = 2;
   bool DISABLE_SYMLINK_DIR = 3;
   bool SKIP_HASH_VERIFICATION = 4;
+
+  bool CPU_BIG_ENDIAN = 5;
+  repeated string CPU_CAPABILITIES = 6;
+  repeated string CPU_FLAGS = 7;
 }
 
 message Result {
